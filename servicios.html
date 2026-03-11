@@ -1,0 +1,85 @@
+<!-- Paso 1: EL ESQUELETO BÁSICO -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Primera Página</title>
+</head>
+<body>
+
+    <!-- 
+    EJERCICIO PARA ALUMNOS (15 min):
+    Crea esta estructura en tu editor y ábrela en el navegador.
+    Observa cómo se ve SIN ningún estilo.
+    -->
+
+    <!-- ENCABEZADO: Etiqueta semántica para la cabecera -->
+    <header>
+        <div>
+            <h1>Mi Empresa</h1>
+            <nav>
+                <a href="#inicio">Inicio</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SECCIÓN PRINCIPAL -->
+    <main>
+        
+        <!-- SECCIÓN: Agrupa contenido temático -->
+        <section id="inicio">
+            <h2>Bienvenidos</h2>
+            <p>Somos una empresa dedicada a crear soluciones digitales.</p>
+            <button>Ver más</button>
+            <button>Contactar</button>
+        </section>
+
+        <!-- SECCIÓN DE SERVICIOS -->
+        <section id="servicios">
+            <h2>Nuestros Servicios</h2>
+            
+            <!-- ARTÍCULO: Contenido independiente y reutilizable -->
+            <article>
+                <h3>Diseño Web</h3>
+                <p>Creamos sitios web modernos y funcionales.</p>
+            </article>
+
+            <article>
+                <h3>Desarrollo</h3>
+                <p>Programamos aplicaciones a medida.</p>
+            </article>
+
+            <article>
+                <h3>Marketing</h3>
+                <p>Aumentamos tu presencia digital.</p>
+            </article>
+        </section>
+
+        <!-- SECCIÓN DE CONTACTO -->
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <form>
+                <div>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" placeholder="Tu nombre">
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="tu@email.com">
+                </div>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <p>© 2024 Mi Empresa</p>
+    </footer>
+
+</body>
+</html>
