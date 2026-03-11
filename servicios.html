@@ -1,85 +1,216 @@
-<!-- Paso 1: EL ESQUELETO BÁSICO -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Primera Página</title>
+    <title>Mi Primera Página con Tailwind</title>
+    
+    <!-- 
+    PASO 1: Incluir Tailwind vía CDN (modo fácil para aprender)
+    En producción se instala con npm, pero para clase usamos CDN
+    -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 
+    OPCIONAL: Configuración personalizada
+    Por ahora no la usamos, pero es bueno saber que existe
+    -->
 </head>
 <body>
 
     <!-- 
-    EJERCICIO PARA ALUMNOS (15 min):
-    Crea esta estructura en tu editor y ábrela en el navegador.
-    Observa cómo se ve SIN ningún estilo.
+    ============================================================
+    CONCEPTO 1: UTILIDADES ATÓMICAS
+    ============================================================
+    
+    En lugar de:
+        <div class="navbar">  (una clase con 10 propiedades)
+    
+    Usamos:
+        <div class="bg-blue-600 text-white p-4">  (3 utilidades)
+    
+    Cada clase hace UNA sola cosa.
     -->
 
-    <!-- ENCABEZADO: Etiqueta semántica para la cabecera -->
-    <header>
-        <div>
-            <h1>Mi Empresa</h1>
-            <nav>
-                <a href="#inicio">Inicio</a>
-                <a href="#servicios">Servicios</a>
-                <a href="#contacto">Contacto</a>
-            </nav>
-        </div>
-    </header>
+    <!-- EJEMPLO 1: Colores de fondo (bg-) -->
+    <div class="bg-red-500">Fondo rojo</div>
+    <div class="bg-blue-500">Fondo azul</div>
+    <div class="bg-green-500">Fondo verde</div>
+    <div class="bg-yellow-500">Fondo amarillo</div>
+    
+    <!-- 
+    EJERCICIO (5 min): 
+    Crea 4 divs con diferentes colores de fondo.
+    Prueba: bg-gray-100, bg-purple-600, bg-pink-300, bg-indigo-900
+    -->
 
-    <!-- SECCIÓN PRINCIPAL -->
-    <main>
-        
-        <!-- SECCIÓN: Agrupa contenido temático -->
-        <section id="inicio">
-            <h2>Bienvenidos</h2>
-            <p>Somos una empresa dedicada a crear soluciones digitales.</p>
-            <button>Ver más</button>
-            <button>Contactar</button>
-        </section>
+    <hr class="my-8"> <!-- Separador -->
 
-        <!-- SECCIÓN DE SERVICIOS -->
-        <section id="servicios">
-            <h2>Nuestros Servicios</h2>
-            
-            <!-- ARTÍCULO: Contenido independiente y reutilizable -->
-            <article>
-                <h3>Diseño Web</h3>
-                <p>Creamos sitios web modernos y funcionales.</p>
-            </article>
+    <!-- 
+    ============================================================
+    CONCEPTO 2: ESPACIADO (p- padding, m- margin)
+    ============================================================
+    
+    Escala de Tailwind (cada número = 0.25rem = 4px):
+    1 = 0.25rem (4px)     6 = 1.5rem (24px)
+    2 = 0.5rem (8px)      8 = 2rem (32px)
+    3 = 0.75rem (12px)    10 = 2.5rem (40px)
+    4 = 1rem (16px)       12 = 3rem (48px)
+    5 = 1.25rem (20px)    16 = 4rem (64px)
+    -->
 
-            <article>
-                <h3>Desarrollo</h3>
-                <p>Programamos aplicaciones a medida.</p>
-            </article>
+    <!-- Padding (espacio INTERNO) -->
+    <div class="bg-blue-200 p-2">Padding pequeño (p-2 = 8px)</div>
+    <div class="bg-blue-300 p-4">Padding mediano (p-4 = 16px)</div>
+    <div class="bg-blue-400 p-8">Padding grande (p-8 = 32px)</div>
 
-            <article>
-                <h3>Marketing</h3>
-                <p>Aumentamos tu presencia digital.</p>
-            </article>
-        </section>
+    <!-- 
+    Padding direccional:
+    pt = padding-top     pr = padding-right
+    pb = padding-bottom  pl = padding-left
+    px = left + right    py = top + bottom
+    -->
+    <div class="bg-green-200 px-4 py-2">Padding horizontal 16px, vertical 8px</div>
 
-        <!-- SECCIÓN DE CONTACTO -->
-        <section id="contacto">
-            <h2>Contacto</h2>
-            <form>
-                <div>
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" placeholder="Tu nombre">
-                </div>
-                <div>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" placeholder="tu@email.com">
-                </div>
-                <button type="submit">Enviar</button>
-            </form>
-        </section>
+    <!-- Margin (espacio EXTERNO) -->
+    <div class="bg-red-200 m-4">Margin alrededor (m-4)</div>
+    <div class="bg-red-300 mt-4">Margin solo arriba (mt-4)</div>
+    <div class="bg-red-400 mb-4">Margin solo abajo (mb-4)</div>
 
-    </main>
+    <!-- 
+    EJERCICIO (10 min):
+    Crea una "caja" con:
+    - Fondo gris claro (bg-gray-100)
+    - Padding de 32px (p-8)
+    - Margin inferior de 24px (mb-6)
+    - Texto centrado (text-center)
+    -->
 
-    <!-- PIE DE PÁGINA -->
-    <footer>
-        <p>© 2024 Mi Empresa</p>
-    </footer>
+    <hr class="my-8">
+
+    <!-- 
+    ============================================================
+    CONCEPTO 3: TIPOGRAFÍA (text-, font-)
+    ============================================================
+    -->
+
+    <!-- Tamaños de texto -->
+    <p class="text-xs">text-xs (12px) - Muy pequeño</p>
+    <p class="text-sm">text-sm (14px) - Pequeño</p>
+    <p class="text-base">text-base (16px) - Normal</p>
+    <p class="text-lg">text-lg (18px) - Grande</p>
+    <p class="text-xl">text-xl (20px) - Muy grande</p>
+    <p class="text-2xl">text-2xl (24px) - Título pequeño</p>
+    <p class="text-4xl">text-4xl (36px) - Título mediano</p>
+
+    <!-- Pesos de fuente -->
+    <p class="font-light">font-light (300)</p>
+    <p class="font-normal">font-normal (400)</p>
+    <p class="font-medium">font-medium (500)</p>
+    <p class="font-semibold">font-semibold (600)</p>
+    <p class="font-bold">font-bold (700)</p>
+
+    <!-- Colores de texto -->
+    <p class="text-gray-500">Texto gris</p>
+    <p class="text-blue-600">Texto azul</p>
+    <p class="text-red-500">Texto rojo</p>
+
+    <!-- 
+    EJERCICIO (10 min):
+    Crea un título principal con:
+    - text-4xl
+    - font-bold
+    - text-center
+    - text-blue-800
+    - mb-4
+    -->
+
+    <hr class="my-8">
+
+    <!-- 
+    ============================================================
+    CONCEPTO 4: BORDES Y REDONDEO (border-, rounded-)
+    ============================================================
+    -->
+
+    <!-- Bordes -->
+    <div class="border border-gray-300 p-4 mb-2">Borde sutil</div>
+    <div class="border-2 border-blue-500 p-4 mb-2">Borde grueso azul</div>
+    <div class="border-4 border-red-500 p-4 mb-2">Borde muy grueso rojo</div>
+
+    <!-- Redondeo -->
+    <div class="bg-blue-200 p-4 rounded-none mb-2">Sin redondeo</div>
+    <div class="bg-blue-300 p-4 rounded mb-2">Redondeo pequeño</div>
+    <div class="bg-blue-400 p-4 rounded-lg mb-2">Redondeo mediano</div>
+    <div class="bg-blue-500 p-4 rounded-xl mb-2">Redondeo grande</div>
+    <div class="bg-blue-600 p-4 rounded-full w-24 h-24 flex items-center justify-center text-white">
+        Círculo
+    </div>
+
+    <!-- 
+    EJERCICIO (10 min):
+    Crea un "botón" usando un div con:
+    - bg-green-500
+    - text-white
+    - px-6 py-3
+    - rounded-lg
+    - font-semibold
+    - text-center
+    - inline-block (para que no ocupe todo el ancho)
+    -->
+
+    <hr class="my-8">
+
+    <!-- 
+    ============================================================
+    CONCEPTO 5: FLEXBOX (flex, justify-, items-)
+    ============================================================
+    
+    Flexbox = alinear elementos en UNA dimensión (fila o columna)
+    -->
+
+    <!-- Flex básico (fila por defecto) -->
+    <div class="flex gap-4 bg-gray-100 p-4 mb-4">
+        <div class="bg-red-400 p-4">Item 1</div>
+        <div class="bg-blue-400 p-4">Item 2</div>
+        <div class="bg-green-400 p-4">Item 3</div>
+    </div>
+
+    <!-- Justificar contenido (eje horizontal) -->
+    <div class="flex justify-start gap-2 bg-gray-200 p-2 mb-2">
+        <div class="bg-red-400 p-2">start</div>
+    </div>
+    <div class="flex justify-center gap-2 bg-gray-200 p-2 mb-2">
+        <div class="bg-blue-400 p-2">center</div>
+    </div>
+    <div class="flex justify-end gap-2 bg-gray-200 p-2 mb-2">
+        <div class="bg-green-400 p-2">end</div>
+    </div>
+    <div class="flex justify-between bg-gray-200 p-2 mb-2">
+        <div class="bg-red-400 p-2">between</div>
+        <div class="bg-blue-400 p-2">separa</div>
+    </div>
+
+    <!-- Alinear items (eje vertical) -->
+    <div class="flex items-center gap-2 bg-gray-200 p-4 h-32 mb-2">
+        <div class="bg-red-400 p-2 h-10">centrado</div>
+        <div class="bg-blue-400 p-2 h-20">vertical</div>
+    </div>
+
+    <!-- 
+    EJERCICIO FINAL DE LA HORA (15 min):
+    Replica esta barra de navegación:
+    
+    [LOGO]                    [Inicio] [Servicios] [Contacto]
+     azul                       gris     gris        gris
+     bold                       normal   normal      normal
+    
+    Pistas:
+    - Usa flex y justify-between
+    - gap-8 para separar los links
+    - text-xl para el logo
+    - text-gray-600 para los links
+    -->
 
 </body>
 </html>
